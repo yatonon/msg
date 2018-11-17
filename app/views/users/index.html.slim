@@ -1,0 +1,22 @@
+.container
+  table.table
+    thead
+      tr
+        td 名前
+        td アドレス
+        td 
+    tbody
+      tr
+        td = fa_icon 'user-circle', text: '自分'
+        - if user_signed_in?
+          td = current_user.email
+          td = link_to 'ひとりごと', '#', class: 'btn btn-default'
+        - else
+          td まだログインしていません
+          td
+
+      - @users.each do |user|
+        - next if user != current_user
+        td = user.id
+        td = user.email
+        td = link_to 'メッセージを送る', '#'
