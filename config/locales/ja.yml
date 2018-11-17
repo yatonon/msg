@@ -1,6 +1,11 @@
 ja:
   user:
-    sign_in: ユーザー登録
+    sign-up: ユーザー登録
+    email: Eメールアドレス
+    password: パスワード
+    password-validation: (%{min}文字以上)
+    password-confirmation: パスワードの確認
+    submit-button: 登録
   menu:
-    todos: ToDo一覧
+    users: ユーザー一覧
     members: チームメンバー
