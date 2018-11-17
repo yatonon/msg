@@ -4,8 +4,7 @@ class CreateChannelmessages < ActiveRecord::Migration[5.2]
       t.text :content
       t.integer :from_id
       t.integer :to_id
-      t.integer :room_id
-      t.references :room, foreign_key: { to_table: :channels }
+      t.references :channel
       t.timestamps
     end
   end
