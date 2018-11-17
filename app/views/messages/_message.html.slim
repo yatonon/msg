@@ -1,0 +1,3 @@
+/ .message class="text-#{message.from_id == current_user.id ? 'right' : 'left' }"
+.message class="text-#{ message.from_id == send_user ? 'right' : 'left' }"
+  p = message.content

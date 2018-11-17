@@ -1,0 +1,11 @@
+.container
+  h2 Chat room
+  #messages.table data-current-user="#{current_user.id}" data-room-id="#{params[:id]}"
+    = render @messages,  { send_user: current_user.id }
+  #form
+    form
+      input type='text' data-behavior='room_speaker'
+      br/
+
+javascript:
+  $('#message')

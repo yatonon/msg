@@ -6,6 +6,7 @@ ja:
     sessions:
       user:
         signed_out: ログアウトしました
+        signed_in: ログインに成功しました
     failure:
       user:
         not_found_in_database: あなたのユーザーデータが見つかりませんでした
