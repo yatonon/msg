@@ -2,5 +2,5 @@ Rails.application.routes.draw do
   devise_for :users
   root 'pages#home'
 
-  get 'page', to: :home
+  get 'page/home'
 end
