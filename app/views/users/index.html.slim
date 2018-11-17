@@ -16,7 +16,8 @@
           td
 
       - @users.each do |user|
-        - next if user != current_user
-        td = user.id
-        td = user.email
-        td = link_to 'メッセージを送る', '#'
+        - next if user == current_user
+        tr
+          td = fa_icon 'user-circle', text: user&.name || '名無しさん'
+          td = user.email
+          td = link_to 'メッセージを送る', '#'

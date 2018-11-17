@@ -3,6 +3,9 @@ ja:
     registrations:
       user:
         signed_up: ユーザー登録が完了しました
+    sessions:
+      user:
+        signed_out: ログアウトしました
   user:
     sign-up: ユーザー登録
     email: Eメールアドレス
