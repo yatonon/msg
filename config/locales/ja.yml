@@ -1,4 +1,8 @@
 ja:
+  devise:
+    registrations:
+      user:
+        signed_up: ユーザー登録が完了しました
   user:
     sign-up: ユーザー登録
     email: Eメールアドレス
@@ -6,6 +10,7 @@ ja:
     password-validation: (%{min}文字以上)
     password-confirmation: パスワードの確認
     submit-button: 登録
+    name: 名前
   menu:
     users: ユーザー一覧
     members: チームメンバー
