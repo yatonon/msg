@@ -5,6 +5,8 @@ class ChannelsController < ApplicationController
 
   def show
     @channels = Channel.all
+    @users = User.all
+    @channelmessage = Channelmessage.new
   end
 
   def new

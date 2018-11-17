@@ -1,0 +1,27 @@
+h1 Listing channelmessages
+
+table
+  thead
+    tr
+      th Content
+      th From
+      th To
+      th Room
+      th
+      th
+      th
+
+  tbody
+    - @channelmessages.each do |channelmessage|
+      tr
+        td = channelmessage.content
+        td = channelmessage.from_id
+        td = channelmessage.to_id
+        td = channelmessage.room_id
+        td = link_to 'Show', channelmessage
+        td = link_to 'Edit', edit_channelmessage_path(channelmessage)
+        td = link_to 'Destroy', channelmessage, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Channelmessage', new_channelmessage_path
