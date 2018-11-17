@@ -22,9 +22,9 @@ html lang="ja" xml:lang="ja" xmlns="http://www.w3.org/1999/xhtml"
         ul
           li
             a href="#"  Home
-          li
-            a href="#"  SignIn
-          li
-            a href="#"  SignUp
+            li
+              = link_to 'ログイン', new_user_session_path
+            li
+              = link_to 'ユーザー登録', new_user_registration_path
       /! globalnavi end
       #footer
