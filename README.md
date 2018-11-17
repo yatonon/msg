@@ -20,7 +20,8 @@ psql -d postgres
 ALTER ROLE postgres WITH SUPERUSER CREATEDB CREATEROLE; # ロールの作成
 ```
 
-### 起動
+### 起動まで
 ```
+bin/rails db:setup
 bin/rails s
 ```
