@@ -1,24 +1,26 @@
-# README
+# msg
+## 依存関係
+* Ruby バージョン 2.5.1
+* PostgreSQL 10.*
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 開発の始め方
+### クローン〜バンドルインストールまで
+```
+git clone https://github.com/yatonon/msg.git
+cd msg
+bundle install --path vendor/bundle -j4
+```
 
-Things you may want to cover:
+### ポスグレのインストール〜設定
+```
+brew install postgres # インストール
+pg_ctl -D /usr/local/var/postgres start # 起動
+createuser -s -d -r -l -W postgres
+psql -d postgres
+ALTER ROLE postgres WITH SUPERUSER CREATEDB CREATEROLE; # ロールの作成
+```
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### 起動
+```
+bin/rails s
+```
