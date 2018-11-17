@@ -1,0 +1,18 @@
+nav.navbar.navbar-expand-md.navbar-dark.bg-primary.sticky-top
+  = link_to 'Msg', root_path, class: 'navbar-brand'
+  button.navbar-toggler type='button' data-toggle='collapse' data-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation'
+    span.navbar-toggler-icon
+  .collapse.navbar-collapse.align-items-center#navbarNav
+    / 左寄せメニュー
+    ul.navbar-nav.mr-auto
+      li class="nav-item #{params[:controller] == 'todos' && params[:action] == 'index' ? 'active' : ''}"
+        = link_to t('menu.todos'), '#', class:'nav-link'
+      li class="nav-item #{params[:controller] == 'members' && params[:action] == 'index' ? 'active' : ''}"
+        = link_to t('menu.members'), '#', class:'nav-link'
+    / 右寄せメニュー
+    ul.navbar-nav
+      - unless user_signed_in?
+        - unless params[:controller] == 'devise/registrations' && params[:action] == 'new'
+          li.nav-item.justify-content-end
+            = link_to new_user_registration_path, class: 'btn btn-warning' do
+              = fa_icon 'user-circle', text: t('user.sign_in')
