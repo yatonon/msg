@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   root 'pages#home'
 
   get 'page/home'
-  # get 'room', to: 'messages#show', as: :room
   resources :rooms
-  # resources :messages
+  resources :channels
+  resources :channelmessages
 end

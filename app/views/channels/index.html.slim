@@ -1,0 +1,9 @@
+h1 これはインデックスだよチャンネルの
+table.table
+    thead
+    tr
+      td ルーム名
+      tbody
+      - @channels.each do |channel|
+        tr
+          td = channel.roomname
