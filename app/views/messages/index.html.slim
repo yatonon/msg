@@ -1,0 +1,12 @@
+.container
+  table.table
+    thead
+      tr
+        td 話し相手
+        td メッセージ
+        td
+    tbody
+      - @messages.each do |message|
+        tr
+          td = message[:from_name]
+          td = message[:content]

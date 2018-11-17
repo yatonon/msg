@@ -1,0 +1,8 @@
+.container
+  h2 show
+
+  - if @messages.present?
+    - @messages.each do |message|
+      .message class="text-#{message.from_id == current_user.id ? 'right' : 'left' }"
+        = message.content
+      hr
