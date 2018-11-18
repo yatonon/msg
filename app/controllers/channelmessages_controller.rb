@@ -28,7 +28,9 @@ class ChannelmessagesController < ApplicationController
     logger.debug "channelmessage_params #{channelmessage_params}"
     @channelmessage = Channelmessage.new(channelmessage_params)
     @channelmessage.save
-    redirect_to channel_path(@channelmessage.room_id)
+    byebug
+    1
+    # redirect_to channel_path
     #
     # respond_to do |format|
     #   if @channelmessage.save
@@ -73,6 +75,6 @@ class ChannelmessagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def channelmessage_params
-      params.require(:channelmessage).permit(:content, :from_id, :room_id)
+      params.require(:channelmessage).permit(:content, :from_id, :to_id, :channel_id)
     end
 end
