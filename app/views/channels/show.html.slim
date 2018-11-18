@@ -3,5 +3,6 @@ h2 = @channels[params[:id].to_i-1][:roomname]
 = form_for @channelmessage, url: channelmessages_path do |f|
   = f.text_field :content, placeholder: "新規メッセージ"
   = f.hidden_field :from_id, value: current_user.id.to_s
-  = f.hidden_field :room_id, value: params[:id]
+  = f.hidden_field :to_id, value: "0"
+  = f.hidden_field :channel_id, value: params[:id]
   = f.submit "送信", class: 'square_btn'
