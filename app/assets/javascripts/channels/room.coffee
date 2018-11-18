@@ -12,7 +12,7 @@ App.room = App.cable.subscriptions.create "RoomChannel",
   speak: (message) ->
     send_user = $('#messages').data 'current-user'
     room_id = $('#messages').data 'room-id'
-    @perform 'speak', message: message, send_user: send_user, room_id
+    @perform 'speak', message: message, send_user: send_user, room_id: room_id
 
 $(document).on 'keypress', '[data-behavior~=room_speaker]', (event) ->
   if event.keyCode is 13 # returnキーが押されたら

@@ -1,3 +1,6 @@
-/ .message class="text-#{message.from_id == current_user.id ? 'right' : 'left' }"
-.message class="text-#{ message.from_id == send_user ? 'right' : 'left' }"
-  p = message.content
+.message.panel.panel-primary data-send-user=message.from_id
+  .send-user
+    p hoge
+    / = message.user.name
+  .content
+    p = message.content

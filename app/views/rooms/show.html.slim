@@ -1,11 +1,24 @@
-.container
+.container.w-75
   h2 Chat room
   #messages.table data-current-user="#{current_user.id}" data-room-id="#{params[:id]}"
-    = render @messages,  { send_user: current_user.id }
+    = render @messages
   #form
     form
       input type='text' data-behavior='room_speaker'
       br/
 
 javascript:
-  $('#message')
+  const crnt_user_id = #{current_user.id};
+  $(function () {
+    $('#messages').children().each(function () {
+      const send_user_id = $(this).data('send-user');
+      const direction = crnt_user_id == send_user_id ? 'right' : 'left'
+      $(this).addClass(`text-${direction}`);
+    });
+  });
+  // メッセージ追加時
+  $('#messages').on('DOMSubtreeModified propertychange', function () {
+    const send_user_id = $('#messages .message:last-child').data('send-user');
+    const direction = crnt_user_id == send_user_id ? 'right' : 'left'
+    $('#messages .message:last-child').addClass(`text-${direction}`);
+  });
