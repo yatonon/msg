@@ -10,7 +10,6 @@ class ChannelmessagesController < ApplicationController
   # GET /channelmessages/1
   # GET /channelmessages/1.json
   def show
-    @channelmassages = Channelmessage.new
   end
 
   # GET /channelmessages/new

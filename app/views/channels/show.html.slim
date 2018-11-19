@@ -6,3 +6,12 @@ h2 = @channels[params[:id].to_i-1][:roomname]
   = f.hidden_field :to_id, value: "0"
   = f.hidden_field :channel_id, value: params[:id]
   = f.submit "送信", class: 'square_btn'
+- @c_messages.each do |c_message|
+    .c_message style="text-align:#{@users[c_message[:from_id]-1] == current_user ? 'right' : 'left' }
+    ; margin: 3vw"
+      .context style="font-size:1.5em"
+        = c_message[:content]
+      br
+      .context style="font-size:0.5em"
+        = @users[c_message[:from_id]-1][:name]
+      hr

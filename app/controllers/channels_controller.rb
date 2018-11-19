@@ -7,6 +7,7 @@ class ChannelsController < ApplicationController
     @channels = Channel.all
     @users = User.all
     @channelmessage = Channelmessage.new
+    @c_messages = Channelmessage.where(channel_id: params[:id]).to_a
   end
 
   def new
