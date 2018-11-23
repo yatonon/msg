@@ -1,14 +1,15 @@
 class MessagesController < ApplicationController
-  def index
-  end
-
-  def show
-    user1, user2 = params[:user_ids]
-    _messages = Message.where(from_id: user1, to_id: user2)
-      .or(Message.where(from_id: user2, to_id: user1))
-    @messages = _messages.present? ? _messages.order('created_at ASC') : nil
-  end
+  before_action :authenticate_user!
 
   def create
+    @message = message.new(message_params)
+    @message.save
+    redirect_to channel_path(@message.channel_id)
   end
+
+  private
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def message_params
+      params.require(:message).permit(:content, :user_id, :channel_id)
+    end
 end

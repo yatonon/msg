@@ -1,8 +1,18 @@
-.container
-  h2 show
+p#notice = notice
 
-  - if @messages.present?
-    - @messages.each do |message|
-      .message class="text-#{message.from_id == current_user.id ? 'right' : 'left' }"
-        = message.content
-      hr
+p
+  strong Content:
+  = @message.content
+p
+  strong From:
+  = @message.from_id
+p
+  strong To:
+  = @message.to_id
+p
+  strong Room:
+  = @message.room_id
+
+=> link_to 'Edit', edit_message_path(@message)
+'|
+=< link_to 'Back', messages_path

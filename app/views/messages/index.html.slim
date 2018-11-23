@@ -1,12 +1,27 @@
-.container
-  table.table
-    thead
+h1 Listing messages
+
+table
+  thead
+    tr
+      th Content
+      th From
+      th To
+      th Room
+      th
+      th
+      th
+
+  tbody
+    - @messages.each do |message|
       tr
-        td 話し相手
-        td メッセージ
-        td
-    tbody
-      - @messages.each do |message|
-        tr
-          td = message[:from_name]
-          td = message[:content]
+        td = message.content
+        td = message.from_id
+        td = message.to_id
+        td = message.room_id
+        td = link_to 'Show', message
+        td = link_to 'Edit', edit_message_path(message)
+        td = link_to 'Destroy', message, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New message', new_message_path

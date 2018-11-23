@@ -1,4 +1,6 @@
 class ChannelsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @channels = current_user.channels
   end
@@ -6,8 +8,8 @@ class ChannelsController < ApplicationController
   def show
     @channels = Channel.all
     @users = User.all
-    @channelmessage = Channelmessage.new
-    @c_messages = Channelmessage.where(channel_id: params[:id]).to_a
+    @message = Message.new
+    @c_messages = Message.where(channel_id: params[:id]).to_a
   end
 
   def new
