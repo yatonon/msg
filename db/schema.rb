@@ -35,9 +35,11 @@ ActiveRecord::Schema.define(version: 2018_11_17_113603) do
     t.text "content"
     t.bigint "from_id"
     t.bigint "to_id"
+    t.bigint "room_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["from_id"], name: "index_messages_on_from_id"
+    t.index ["room_id"], name: "index_messages_on_room_id"
     t.index ["to_id"], name: "index_messages_on_to_id"
   end
 
