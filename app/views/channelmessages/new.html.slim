@@ -1,4 +1,4 @@
-/ h2 = @channels[params[:id].to_i-1][:roomname]
+/ h2 = @channels[params[:id].to_i-1][:name]
 
 = form_for @channelmessage do |f|
   = f.text_field :content, placeholder: "新規メッセージ"

@@ -1,6 +1,6 @@
 class ChannelsController < ApplicationController
   def index
-    @channels = Channel.all
+    @channels = current_user.channels
   end
 
   def show
@@ -24,7 +24,7 @@ class ChannelsController < ApplicationController
 
   def channel_params
     params.require(:channel).permit(
-      :roomname
+      :name
     )
   end
 
