@@ -10,7 +10,6 @@ class ChannelmessagesController < ApplicationController
   # GET /channelmessages/1
   # GET /channelmessages/1.json
   def show
-    @channelmassages = Channelmessage.new
   end
 
   # GET /channelmessages/new
@@ -28,19 +27,7 @@ class ChannelmessagesController < ApplicationController
     logger.debug "channelmessage_params #{channelmessage_params}"
     @channelmessage = Channelmessage.new(channelmessage_params)
     @channelmessage.save
-    byebug
-    1
-    # redirect_to channel_path
-    #
-    # respond_to do |format|
-    #   if @channelmessage.save
-    #     format.html { redirect_to @channelmessage, notice: 'Channelmessage was successfully created.' }
-    #     format.json { render :show, status: :created, location: @channelmessage }
-    #   else
-    #     format.html { render :new }
-    #     format.json { render json: @channelmessage.errors, status: :unprocessable_entity }
-    #   end
-    # end
+    redirect_to channel_path(@channelmessage.channel_id)
   end
 
   # PATCH/PUT /channelmessages/1
