@@ -1,0 +1,16 @@
+doctype html
+html
+   body
+     h1 user#edit
+     #name
+       p = @user.name
+       <input type="button" value="名前を変更" onclick="txterea_n()">
+     #email
+       p = @user.email
+       <input type="button" value=" email を変更" onclick="txterea_e()">
+
+javascript:
+  var txterea_n = function(){
+    var txtarea = document.getElementById('name')
+    txtarea.innerHTML = ''
+  }

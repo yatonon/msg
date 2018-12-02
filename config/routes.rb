@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root 'pages#home'
   get 'page/home'
   resources :users
+  get 'profile', to: 'users#profile'
   resources :channels
   resources :messages, only: %i(create edit update destroy)
 end

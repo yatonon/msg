@@ -1,0 +1,6 @@
+h1 user#show
+p = current_user.name
+p = current_user.email
+p チャンネル一覧
+= link_to "チャンネル一覧", channels_path, class: 'btn'
+= link_to "登録内容を変更する",edit_user_path(current_user), class: 'btn'
