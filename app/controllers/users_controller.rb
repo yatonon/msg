@@ -11,12 +11,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    current_user.update(name: "s")
-    current_user.update(email: current_user.email)
-    if current_user.user_original?
-      current_user.update(user_original: current_user.user_original)
-    else
+    current_user.update(params.require(:user).permit(:name, :email, :user_original))
     redirect_to profile_path
     end
   end
-end
