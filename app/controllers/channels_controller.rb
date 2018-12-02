@@ -1,6 +1,6 @@
 class ChannelsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_channel, only: %i(show)
+  before_action :set_channel, only: %i(show invite_user_index invite_user)
 
   def index
     @channels = current_user.channels
@@ -18,6 +18,16 @@ class ChannelsController < ApplicationController
     @channel = current_user.channels.create(channel_params)
     redirect_to channels_path
   end
+
+  def invite_user_index
+    @users = User.all
+  end
+
+  def invite_user
+    ChannelUser.create(channel_id: @channel.id, user_id: params[:user_id])
+    redirect_to channel_path(@channel)
+  end
+
 
   private
 

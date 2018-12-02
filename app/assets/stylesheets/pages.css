@@ -17,106 +17,33 @@ a:hover { color: #f00; }
 
 a:active { color: #f00; }
 
-body {
-  font-size: 85%;
+#header h1,#header p,.button {
   text-align: center;
-  font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "MS PGothic", sans-serif;
-  padding:0;
-  margin: 0;
 }
 
-#wrapper {
-  text-align: left;
-  margin: 100px auto 0;
-  width: 800px;
+#globalnavi ul {
+  margin-top: 100px;
+}
+#globalnavi .col-sm-6.button {
+  height: 50px;
 }
 
-#header { height: 120px; }
-
-#contents {
-  font-size: 90%;
-  float: right;
-  padding: 5px 0 5px 410px;
-  overflow: auto;
-}
-
-#globalnavi {
-  font-size: 90%;
-  width: 195px;
-  height: 290px;
-  float: left;
-  padding: 5px 5px 5px 0;
-}
-
-#footer { padding: 5px 0; }
-
-h1 {
-  font-size: 100%;
-  font-weight: normal;
-  text-align: right;
-}
-
-/* サイトタイトル */
-#header .logo {
-  font-size: 150%;
-  font-weight: normal;
-  line-height: 1em;
-}
-
-.logo a {
-  text-decoration: none;
-  color: #0066ff;
-}
-
-.logo a:hover {
-  text-decoration: none;
-  color: #ff0000;
-}
-
-#header p {
-  margin-bottom: 0.5em;
-  line-height: 1.2em;
-}
-
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-size: 120%;
-  font-weight: normal;
+.button {
+  margin: auto;
+  line-height: 50px;
+  width: 50%;
   margin-bottom: 10px;
-  border-bottom: 1px solid #eee;
-  color: #fff;
+  border-radius: 10px;
+  background-color: #ffc200;
+  box-shadow: 3px 3px #bfbfbf;
+}
+.button:active {
+  transform:translate(3px,3px);
+  box-shadow: none;
 }
 
-#contents p {
-  margin-bottom: 0.5em;
-  line-height: 1.5em;
+.button a {
+  display: inline-block;
+  height: 100%;
+  width: 100%;
 }
-
-#contents ul { margin: 0 0 20px 15px; }
-
-#contents li { margin-bottom: 0.5em; }
-
-#globalnavi ul { list-style-type: none; }
-
-#globalnavi li { display: inline; }
-
-#globalnavi li a {
-  text-decoration: none;
-  width: 180px;
-  display: block;
-  padding: 4px 4px 4px 9px;
-  border: 1px outset #09c;
-  background-color: #09c;
-  color: #eee;
-}
-
-#globalnavi li a:hover {
-  text-decoration: none;
-  background-color: #eee;
-  color: #000;
-}
-
-#footer p { text-align: center; }
