@@ -17,7 +17,7 @@ table
         td = message.content
         td = message.from_id
         td = message.to_id
-        td = message.room_id
+        td = message.channel_id
         td = link_to 'Show', message
         td = link_to 'Edit', edit_message_path(message)
         td = link_to 'Destroy', message, data: { confirm: 'Are you sure?' }, method: :delete

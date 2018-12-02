@@ -1,15 +1,17 @@
 class ChannelsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_channel, only: %i(show)
 
   def index
     @channels = current_user.channels
   end
 
   def show
-    @channels = Channel.all
-    @users = User.all
-    @message = Message.new
-    @c_messages = Message.where(channel_id: params[:id]).to_a
+    # @channels = Channel.all
+    # @users = User.all
+    # @message = Message.new
+    # @c_messages = Message.where(channel_id: params[:id]).to_a
+    @messages = Message.where(channel_id: params[:id])
   end
 
   def new
@@ -30,4 +32,7 @@ class ChannelsController < ApplicationController
     )
   end
 
+  def set_channel
+    @channel = Channel.find(params[:id])
+  end
 end

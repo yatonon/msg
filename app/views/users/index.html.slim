@@ -20,4 +20,5 @@
         tr
           td = fa_icon 'user-circle', text: user&.name || '名無しさん'
           td = user.email
-          td = link_to 'メッセージルームへ', room_path(user_ids: [current_user.id, user.id]), class: 'btn btn-default'
+          td = link_to 'メッセージルームへ'
+          / , channel_path(user_ids: [current_user.id, user.id]), class: 'btn btn-default'

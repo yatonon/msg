@@ -1,4 +1,5 @@
-h2 チャンネル作成
-= form_for @channel do |f|
-  = f.text_field :name, placeholder: "新規チャンネル名"
-  = f.submit "チャンネルを作る", class: 'square_btn'
+.container
+  h2 チャンネル作成
+  = form_for @channel do |f|
+    = f.text_field :name, placeholder: "新規チャンネル名"
+    = f.submit "チャンネルを作る", class: 'square_btn'
