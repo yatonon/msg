@@ -4,12 +4,12 @@
     span.dropdown.pull-right
       = button_tag type: 'button', class: 'btn btn-default dropdown-toggle', id: 'dropdownMenu', data: { toggle: 'dropdown' }, aria: { haspopup: true, expanded: true } do
         span.caret = fa_icon 'user-circle', text: '参加ユーザー'
-      ul.dropdown-menu aria-labelledby='dropdownMenu'
+      ul.dropdown-menu aria-labelledby='dropdownMenu' style='overflow: hidden'
         - @channel.users.each do |user|
-          li = link_to  user.name, user_path(user), class: 'btn btn-default'
+          li = link_to  user.name.truncate(10), user_path(user), class: 'btn btn-default w-100'
         li.divider role='separator'
         li = link_to invite_user_index_channel_path(@channel), class: 'btn btn-default' do
-         = fa_icon 'plus-square', text: '新しいユーザーを招待'
+         = fa_icon 'plus-square', text: '友達を呼ぶ'
 
   #messages.table data-current-user="#{current_user.id}" data-channel-id="#{params[:id]}"
     = render @messages
