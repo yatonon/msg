@@ -1,17 +1,24 @@
-h2 = @channels[params[:id].to_i-1][:name]
+.container.w-75
+  h2 Chat room
+  #messages.table data-current-user="#{current_user.id}" data-channel-id="#{params[:id]}"
+    = render @messages
+  #form
+    form
+      input type='text' data-behavior='channel_speaker'
+      br/
 
-= form_for @message do |f|
-  = f.text_field :content, placeholder: "新規メッセージ"
-  = f.hidden_field :from_id, value: current_user.id.to_s
-  = f.hidden_field :to_id, value: "0"
-  = f.hidden_field :channel_id, value: params[:id]
-  = f.submit "送信", class: 'square_btn'
-- @c_messages.each do |c_message|
-    .c_message style="text-align:#{@users[c_message[:from_id]-1] == current_user ? 'right' : 'left' }
-    ; margin: 3vw"
-      .context style="font-size:1.5em"
-        = c_message[:content]
-      br
-      .context style="font-size:0.5em"
-        = @users[c_message[:from_id]-1][:name]
-      hr
+javascript:
+  const crnt_user_id = #{current_user.id};
+  $(function () {
+    $('#messages').children().each(function () {
+      const send_user_id = $(this).data('send-user');
+      const direction = crnt_user_id == send_user_id ? 'right' : 'left'
+      $(this).addClass(`text-${direction}`);
+    });
+  });
+  // メッセージ追加時
+  $('#messages').on('DOMSubtreeModified propertychange', function () {
+    const send_user_id = $('#messages .message:last-child').data('send-user');
+    const direction = crnt_user_id == send_user_id ? 'right' : 'left'
+    $('#messages .message:last-child').addClass(`text-${direction}`);
+  });

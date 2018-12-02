@@ -3,5 +3,5 @@
 = form_for @message do |f|
   = f.text_field :content, placeholder: "新規メッセージ"
   = f.hidden_field :from_id, value: current_user.id.to_s
-  = f.hidden_field :room_id, value: 1
+  = f.hidden_field :channel_id, value: 1
   = f.submit "送信", class: 'square_btn'

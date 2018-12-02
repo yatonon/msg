@@ -2,7 +2,7 @@ class MessageBroadcastJob < ApplicationJob
   queue_as :default
 
   def perform(message)
-    ActionCable.server.broadcast 'room_channel', message: render_message(message)
+    ActionCable.server.broadcast 'channel_channel', message: render_message(message)
   end
 
   private
@@ -12,7 +12,7 @@ class MessageBroadcastJob < ApplicationJob
       partial: 'messages/message',
       locals: {
         message: message,
-        send_user: message.from_id,
+        send_user: message.user_id,
       }
     )
   end
