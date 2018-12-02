@@ -1,4 +1,4 @@
-.container.w-75
+.container.w-100
   span style='font-size: 32px' Chat room
   - if @channel.name != '自分'
     span.dropdown.pull-right
@@ -33,6 +33,6 @@ javascript:
   // メッセージ追加時
   $('#messages').on('DOMSubtreeModified propertychange', function () {
     const send_user_id = $('#messages .message:last-child').data('send-user');
-    const direction = crnt_user_id == send_user_id ? 'right' : 'left'
+    const direction = crnt_user_id == send_user_id ? 'right' : 'left';
     $('#messages .message:last-child').addClass(`text-${direction}`);
   });
