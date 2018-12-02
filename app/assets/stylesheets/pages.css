@@ -11,8 +11,6 @@ a:active { text-decoration: none; }
 
 a:link { color: #00f; }
 
-a:visited { color: #90f; }
-
 a:hover { color: #f00; }
 
 a:active { color: #f00; }
