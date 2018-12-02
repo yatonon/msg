@@ -83,6 +83,7 @@ test:
 #
 production:
   <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
   database: msg_production
   username: msg
   password: <%= ENV['MSG_DATABASE_PASSWORD'] %>
