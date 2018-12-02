@@ -1,11 +1,30 @@
-.container
+.container.w-50
   h1 これはインデックスだよチャンネルの
-  = link_to 'チャンネルを新規作成する', new_channel_path
+  = link_to 'チャンネルを新規作成する', new_channel_path, class: 'btn btn-info mb-4 text-white'
+  = button_tag fa_icon(:trash, text: 'チャンネルを削除'), type: 'button', onclick: 'changeMode()', class: 'btn-sm btn-danger delete-mode pull-right'
   table.table
       thead
       tr
         td ルーム名
+        td
         tbody
         - @channels.each do |channel|
           tr
-            td = link_to channel.name, channel_path(channel)
+            td = link_to channel.name, channel_path(channel), class: 'link'
+            td.text-right = link_to fa_icon(:trash), channel, method: :delete, class: 'btn btn-sm btn-outline-danger delete-btn', data: { confirm: '本当に削除しますか' }
+
+javascript:
+  $(() => {
+    $('.delete-btn').hide();
+  });
+
+  let isEditMode = false;
+  const changeMode = () => {
+    console.log('hoge');
+    if (isEditMode)
+      $('.delete-btn').hide();
+    else
+      $('.delete-btn').show();
+
+    isEditMode = !isEditMode;
+  }
