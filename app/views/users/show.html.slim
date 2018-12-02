@@ -1,0 +1,9 @@
+doctype html
+html
+   body
+     h1 user#show
+     p = @user.name
+     p = @user.email
+     p チャンネル一覧
+     = link_to "チャンネル一覧", channels_path, class: 'btn'
+     p 登録内容を変更する
