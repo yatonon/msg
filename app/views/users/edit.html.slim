@@ -1,3 +1,4 @@
-h1 user#edit
-= render "edit_form", ttt: "asd"
-= link_to '戻る', user_path
+= stylesheet_link_tag 'edit'
+h1 プロフィールを編集
+= render "edit_form"
+.button = link_to '戻る', profile_path 

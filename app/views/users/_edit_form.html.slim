@@ -1,6 +1,9 @@
-= form_for current_user do |f|
-  p 名前を変更
-  = f.text_field :name, value: f.object.name
-  p メールアドレスを変更
-  = f.text_field :email, value: f.object.email
-  = f.submit "更新", class: 'square_'
+= stylesheet_link_tag 'edit'
+.form
+  = form_for current_user do |f|
+    p 名前を変更
+    = f.text_field :name, value: f.object.name
+    p メールアドレスを変更
+    = f.text_field :email, value: f.object.email
+    br
+    = f.submit "更新", class: 'button'
