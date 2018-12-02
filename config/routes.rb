@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   root 'pages#home'
   get 'page/home'
   resources :users
+  get 'profile', to: 'users#profile'
+  resources :channels
   resources :channels do
     member do
       get 'invite_user_index'
