@@ -1,5 +1,3 @@
-= stylesheet_link_tag 'pages', media: :all
-
 .container
   #header
    h1.logo
@@ -11,10 +9,10 @@
   #globalnavi
     ul.row
       li.col-sm-6.list-unstyled
-        div.button.registration
+        .button.registration
           = link_to 'ユーザー登録', new_user_registration_path
       li.col-sm-6.list-unstyled
-        div.button.login
+        .button.login
           = link_to 'ログイン', new_user_session_path
   /! globalnavi end
   #footer
