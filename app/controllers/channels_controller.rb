@@ -1,13 +1,15 @@
 class ChannelsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
-    @channels = Channel.all
+    @channels = current_user.channels
   end
 
   def show
     @channels = Channel.all
     @users = User.all
-    @channelmessage = Channelmessage.new
-    @c_messages = Channelmessage.where(channel_id: params[:id]).to_a
+    @message = Message.new
+    @c_messages = Message.where(channel_id: params[:id]).to_a
   end
 
   def new
@@ -24,7 +26,7 @@ class ChannelsController < ApplicationController
 
   def channel_params
     params.require(:channel).permit(
-      :roomname
+      :name
     )
   end
 

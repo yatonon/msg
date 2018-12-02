@@ -1,9 +1,9 @@
-= form_for @channelmessage do |f|
-  - if @channelmessage.errors.any?
+= form_for @message do |f|
+  - if @message.errors.any?
     #error_explanation
-      h2 = "#{pluralize(@channelmessage.errors.count, "error")} prohibited this channelmessage from being saved:"
+      h2 = "#{pluralize(@message.errors.count, "error")} prohibited this message from being saved:"
       ul
-        - @channelmessage.errors.full_messages.each do |message|
+        - @message.errors.full_messages.each do |message|
           li = message
 
   .field

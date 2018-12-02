@@ -1,12 +1,9 @@
 Rails.application.routes.draw do
-  get 'rooms/show'
-  get 'messages/index'
-  get 'users/index'
   devise_for :users
+  # , controllers: { registrations: 'users/registrations' }
   root 'pages#home'
-
   get 'page/home'
-  resources :rooms
+  resources :users
   resources :channels
-  resources :channelmessages
+  resources :messages, only: %i(create edit update destroy)
 end

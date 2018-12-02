@@ -10,37 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_17_113603) do
+ActiveRecord::Schema.define(version: 2018_11_23_090717) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "channelmessages", force: :cascade do |t|
-    t.text "content"
-    t.integer "from_id"
-    t.integer "to_id"
+  create_table "channel_users", force: :cascade do |t|
+    t.bigint "user_id"
     t.bigint "channel_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["channel_id"], name: "index_channelmessages_on_channel_id"
+    t.index ["channel_id"], name: "index_channel_users_on_channel_id"
+    t.index ["user_id"], name: "index_channel_users_on_user_id"
   end
 
   create_table "channels", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "roomname"
   end
 
   create_table "messages", force: :cascade do |t|
     t.text "content"
-    t.bigint "from_id"
-    t.bigint "to_id"
-    t.bigint "room_id"
+    t.bigint "user_id"
+    t.bigint "channel_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["from_id"], name: "index_messages_on_from_id"
-    t.index ["room_id"], name: "index_messages_on_room_id"
-    t.index ["to_id"], name: "index_messages_on_to_id"
+    t.index ["channel_id"], name: "index_messages_on_channel_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -56,4 +53,6 @@ ActiveRecord::Schema.define(version: 2018_11_17_113603) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "channel_users", "channels"
+  add_foreign_key "channel_users", "users"
 end

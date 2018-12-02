@@ -6,4 +6,4 @@ table.table
       tbody
       - @channels.each do |channel|
         tr
-          td = channel.roomname
+          td = link_to channel.name, channel_path(channel)

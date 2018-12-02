@@ -1,67 +1,66 @@
-class ChannelmessagesController < ApplicationController
-  before_action :set_channelmessage, only: [:edit, :update, :destroy]
+class messagesController < ApplicationController
+  before_action :set_message, only: [:edit, :update, :destroy]
 
-  # GET /channelmessages
-  # GET /channelmessages.json
+  # GET /messages
+  # GET /messages.json
   def index
-    @channelmessages = Channelmessage.all
+    @messages = message.all
   end
 
-  # GET /channelmessages/1
-  # GET /channelmessages/1.json
+  # GET /messages/1
+  # GET /messages/1.json
   def show
   end
 
-  # GET /channelmessages/new
+  # GET /messages/new
   def new
-    @channelmessage = Channelmessage.new
+    @message = message.new
   end
 
-  # GET /channelmessages/1/edit
+  # GET /messages/1/edit
   def edit
   end
 
-  # POST /channelmessages
-  # POST /channelmessages.json
+  # POST /messages
+  # POST /messages.json
   def create
-    logger.debug "channelmessage_params #{channelmessage_params}"
-    @channelmessage = Channelmessage.new(channelmessage_params)
-    @channelmessage.save
-    redirect_to channel_path(@channelmessage.channel_id)
+    @message = message.new(message_params)
+    @message.save
+    redirect_to channel_path(@message.channel_id)
   end
 
-  # PATCH/PUT /channelmessages/1
-  # PATCH/PUT /channelmessages/1.json
+  # PATCH/PUT /messages/1
+  # PATCH/PUT /messages/1.json
   def update
     respond_to do |format|
-      if @channelmessage.update(channelmessage_params)
-        format.html { redirect_to @channelmessage, notice: 'Channelmessage was successfully updated.' }
-        format.json { render :show, status: :ok, location: @channelmessage }
+      if @message.update(message_params)
+        format.html { redirect_to @message, notice: 'message was successfully updated.' }
+        format.json { render :show, status: :ok, location: @message }
       else
         format.html { render :edit }
-        format.json { render json: @channelmessage.errors, status: :unprocessable_entity }
+        format.json { render json: @message.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /channelmessages/1
-  # DELETE /channelmessages/1.json
+  # DELETE /messages/1
+  # DELETE /messages/1.json
   def destroy
-    @channelmessage.destroy
+    @message.destroy
     respond_to do |format|
-      format.html { redirect_to channelmessages_url, notice: 'Channelmessage was successfully destroyed.' }
+      format.html { redirect_to messages_url, notice: 'message was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_channelmessage
-      @channelmessage = Channelmessage.find(params[:id])
+    def set_message
+      @message = message.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def channelmessage_params
-      params.require(:channelmessage).permit(:content, :from_id, :to_id, :channel_id)
+    def message_params
+      params.require(:message).permit(:content, :from_id, :to_id, :channel_id)
     end
 end
