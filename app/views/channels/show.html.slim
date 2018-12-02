@@ -1,19 +1,25 @@
 .container.w-75
-  h2 Chat room
-  .dropdown
-    = button_tag type: 'button', class: 'btn btn-default dropdown-toggle', id: 'dropdownMenu', data: { toggle: 'dropdown' }, aria: { haspopup: true, expanded: true } do
-      span.caret = fa_icon 'user-circle', text: '参加ユーザー'
-    ul.dropdown-menu aria-labelledby='dropdownMenu'
-      - @channel.users.each do |user|
-        li = link_to  user.name, user_path(user)
-      li.divider role='separator'
-      li = link_to '新しいユーザーを招待する', '#'
+  span style='font-size: 32px' Chat room
+  - if @channel.name != '自分'
+    span.dropdown.pull-right
+      = button_tag type: 'button', class: 'btn btn-default dropdown-toggle', id: 'dropdownMenu', data: { toggle: 'dropdown' }, aria: { haspopup: true, expanded: true } do
+        span.caret = fa_icon 'user-circle', text: '参加ユーザー'
+      ul.dropdown-menu aria-labelledby='dropdownMenu'
+        - @channel.users.each do |user|
+          li = link_to  user.name, user_path(user), class: 'btn btn-default'
+        li.divider role='separator'
+        li = link_to invite_user_index_channel_path(@channel), class: 'btn btn-default' do
+         = fa_icon 'plus-square', text: '新しいユーザーを招待'
+
   #messages.table data-current-user="#{current_user.id}" data-channel-id="#{params[:id]}"
     = render @messages
-  #form
-    form
-      input type='text' data-behavior='channel_speaker'
-      br/
+
+  footer.fixed-bottom
+    .container.w-75
+      #form.text-center
+        form
+          input type='text' placeholder='メッセージを入力' data-behavior='channel_speaker' class='w-75 mb-5'
+          br/
 
 javascript:
   const crnt_user_id = #{current_user.id};

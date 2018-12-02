@@ -1,10 +1,11 @@
-h1 これはインデックスだよチャンネルの
-= link_to 'チャンネルを新規作成する', new_channel_path
-table.table
-    thead
-    tr
-      td ルーム名
-      tbody
-      - @channels.each do |channel|
-        tr
-          td = link_to channel.name, channel_path(channel)
+.container
+  h1 これはインデックスだよチャンネルの
+  = link_to 'チャンネルを新規作成する', new_channel_path
+  table.table
+      thead
+      tr
+        td ルーム名
+        tbody
+        - @channels.each do |channel|
+          tr
+            td = link_to channel.name, channel_path(channel)
