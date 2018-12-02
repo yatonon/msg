@@ -1,5 +1,13 @@
 .container.w-75
   h2 Chat room
+  .dropdown
+    = button_tag type: 'button', class: 'btn btn-default dropdown-toggle', id: 'dropdownMenu', data: { toggle: 'dropdown' }, aria: { haspopup: true, expanded: true } do
+      span.caret = fa_icon 'user-circle', text: '参加ユーザー'
+    ul.dropdown-menu aria-labelledby='dropdownMenu'
+      - @channel.users.each do |user|
+        li = link_to  user.name, user_path(user)
+      li.divider role='separator'
+      li = link_to '新しいユーザーを招待する', '#'
   #messages.table data-current-user="#{current_user.id}" data-channel-id="#{params[:id]}"
     = render @messages
   #form

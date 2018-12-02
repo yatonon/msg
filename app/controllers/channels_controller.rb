@@ -7,20 +7,15 @@ class ChannelsController < ApplicationController
   end
 
   def show
-    # @channels = Channel.all
-    # @users = User.all
-    # @message = Message.new
-    # @c_messages = Message.where(channel_id: params[:id]).to_a
     @messages = Message.where(channel_id: params[:id])
   end
 
   def new
-    @channel = Channel.new
+    @channel = current_user.channels.new
   end
 
   def create
-    @channel = Channel.new(channel_params)
-    @channel.save
+    @channel = current_user.channels.create(channel_params)
     redirect_to channels_path
   end
 
