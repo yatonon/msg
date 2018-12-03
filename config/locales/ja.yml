@@ -2,8 +2,14 @@ ja:
   activerecord:
     errors:
       models:
+        user:
+          attributes:
+            user_original:
+              blank: その ID はすでに使用されています
         message:
           attributes:
+            channel:
+              required: エラーがわかりません。
             channel:
               required: エラーがわかりません。
   devise:

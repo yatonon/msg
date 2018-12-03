@@ -11,7 +11,10 @@ class UsersController < ApplicationController
   end
 
   def update
-    current_user.update(params.require(:user).permit(:name, :email, :user_original))
-    redirect_to profile_path
+    if current_user.update(params.require(:user).permit(:name, :email, :user_original))
+      redirect_to profile_path
+    else
+      redirect_to edit_user_path
     end
   end
+end
