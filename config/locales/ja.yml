@@ -5,7 +5,7 @@ ja:
         user:
           attributes:
             user_original:
-              blank: その ID はすでに使用されています
+              taken: その ID はすでに使用されています
         message:
           attributes:
             channel:
