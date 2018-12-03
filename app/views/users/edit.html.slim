@@ -1,4 +1,8 @@
 = stylesheet_link_tag 'edit'
+
+- current_user.errors.full_messages.each do |message|
+  = message
+
 h1 プロフィールを編集
 = render "edit_form"
-.button = link_to '戻る', profile_path 
+.button = link_to '戻る', profile_path
