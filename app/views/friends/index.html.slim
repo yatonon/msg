@@ -1,0 +1,27 @@
+h1 Listing friends
+
+table
+  thead
+    tr
+      th From user
+      th To user
+      th Establish
+      th Apply
+      th
+      th
+      th
+
+  tbody
+    - @friends.each do |friend|
+      tr
+        td = friend.from_user
+        td = friend.to_user
+        td = friend.establish
+        td = friend.apply
+        td = link_to 'Show', friend
+        td = link_to 'Edit', edit_friend_path(friend)
+        td = link_to 'Destroy', friend, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Friend', new_friend_path

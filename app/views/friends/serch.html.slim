@@ -1,0 +1,5 @@
+h2 フレンドを検索
+= form_tag({ :controller => 'friends', :action => 'new' },{ :method => :get }) do
+  = label_tag :id
+  = text_field_tag 'uniq','', placeholder: "フレンドIDを入力"
+  = submit_tag "検索"

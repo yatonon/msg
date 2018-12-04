@@ -1,0 +1,8 @@
+h1 new
+= @user[0].name
+= form_for @friend, url: friends_path do |f|
+  = f.hidden_field :user_id, value: current_user.id
+  = f.hidden_field :to_id, value: @user[0].id
+  = f.hidden_field :establish, value: false
+  = f.hidden_field :apply, value: true
+  = f.submit
