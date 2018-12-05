@@ -9,6 +9,21 @@ class FriendsController < ApplicationController
   # GET /friends/1
   # GET /friends/1.json
   def show
+    c_id = current_user.id
+    current_to_friends = Friend.where(user_id: c_id).where(establish: true )
+    current_from_friends = Friend.where(to_id: c_id).where(establish: true )
+    current_friends = []
+    @friends_name = []
+
+    current_to_friends.each do |current_to_friend|
+      current_friends.push(User.where(id: current_to_friend.to_id))
+    end
+    current_from_friends.each do |current_from_friend|
+      current_friends.push(User.where(id: current_from_friend.user_id))
+    end
+    current_friends.each do |current_friend|
+      @friends_name.push(current_friend.pluck(:name))
+    end
   end
 
   # GET /friends/new
