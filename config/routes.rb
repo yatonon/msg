@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :friends
+  get 'friends_serch', to: 'friends#serch'
   devise_for :users
   # , controllers: { registrations: 'users/registrations' }
   root 'pages#home'

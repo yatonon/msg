@@ -2,6 +2,10 @@ ja:
   activerecord:
     errors:
       models:
+        friend:
+          attributes:
+            user_id:
+              taken: すでに招待を送っています
         user:
           attributes:
             user_original:
