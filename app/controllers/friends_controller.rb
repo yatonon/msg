@@ -28,6 +28,7 @@ class FriendsController < ApplicationController
     @friend = Friend.new(friend_params)
     if @friend.save
       redirect_to friends_serch_path
+    else
     end
   end
 
