@@ -1,0 +1,26 @@
+@charset "utf-8";
+.send-user p{
+  margin: 0;
+}
+.content {
+  margin-bottom: 10px;
+  padding: 10px 0;
+  width: 40%;
+  border-radius: 10px;
+  background-color: #a4a4a4;
+}
+.content p {
+  margin: 0;
+}
+.text-left .content {
+  margin-right: auto;
+}
+.text-left .content p {
+  padding-left: 5px;
+}
+.text-right .content {
+  margin-left: auto;
+}
+.text-right .content p {
+  padding-right: 5px;
+}
