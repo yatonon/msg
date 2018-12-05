@@ -1,4 +1,5 @@
 class FriendsController < ApplicationController
+  add_flash_types :error
   # GET /friends
   # GET /friends.json
   def index
@@ -29,6 +30,7 @@ class FriendsController < ApplicationController
     if @friend.save
       redirect_to friends_serch_path
     else
+      redirect_to friends_serch_path, error: @friend.errors.full_messages
     end
   end
 

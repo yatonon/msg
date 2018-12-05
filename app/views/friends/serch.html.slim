@@ -3,3 +3,6 @@ h2 フレンドを検索
   = label_tag :id
   = text_field_tag 'uniq','', placeholder: "フレンドIDを入力"
   = submit_tag "検索"
+
+- if error.present?
+  = error[0]
