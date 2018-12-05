@@ -1,11 +1,10 @@
 class Friend < ApplicationRecord
   belongs_to :user
 
-  # validates :user_id,uniqueness:true
-  validates :user_id,:uniqueness => {:scope =>[:to_id]}, unless: :establish?
+  validates :user_id,:uniqueness => {:scope =>[:to_id]}, if: :invite_doub?
 
-  with_options unless: :establish? do
-    validates :establish,  inclusion: { in: [false] }
-    validates :apply,  inclusion: { in: [true] }
+  def invite_doub?
+    establish == false
+    apply == true
   end
 end
