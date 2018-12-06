@@ -4,6 +4,7 @@ class CreateFriends < ActiveRecord::Migration[5.2]
       t.references :user, foreign_key: true
       t.boolean :establish
       t.boolean :apply
+      t.int :to_id
 
       t.timestamps
     end

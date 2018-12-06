@@ -1,2 +1,8 @@
-- @friends_name.sort.each do |friend_name|
-  = friend_name
+.container
+  h2 あなたの友達
+  - @your_friends.each do |friend|
+    p = friend.name
+
+  h2 あなたと友だちになりたい人たち
+  - @users_wanting_to_become_friend_with_you.each do |user|
+    p = user.name
