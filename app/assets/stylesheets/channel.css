@@ -2,6 +2,14 @@
 .send-user p{
   margin: 0;
 }
+.navbar {
+  z-index: 9999;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
 .content {
   margin-bottom: 10px;
   padding: 10px 0;
@@ -27,4 +35,28 @@
 
 .move {
   padding-bottom: 100px;
+}
+
+@media (max-width: 750px) {
+  .fixed-bottom {
+    background-color: #2E2E2E;
+  }
+  .text-center {
+    margin: 10px 0;
+  }
+  .text-center form {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  #text {
+    width: 80%;
+    margin-right: 10px;
+    margin-bottom: 0!important;
+    border-radius: 10px;
+  }
+  #submit {
+    border-radius: 10px;
+    background-color: #6D6D6D;
+  }
 }
