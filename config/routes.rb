@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   # , controllers: { registrations: 'users/registrations' }
   root 'pages#home'
   get 'page/home'
+
   resources :users
   get 'profile', to: 'users#profile'
   resources :channels
@@ -14,5 +15,8 @@ Rails.application.routes.draw do
       post 'invite_user'
     end
   end
+  get '/img_posts', to: 'img_posts#show'
+  post '/img_posts/create', to: 'img_posts#create'
+  
   resources :messages, only: %i(create edit update destroy)
 end
