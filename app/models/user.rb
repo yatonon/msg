@@ -1,8 +1,9 @@
 class User < ApplicationRecord
   has_many :channel_users
-  has_many :friends
   has_many :channels, through: :channel_users
   accepts_nested_attributes_for :channel_users
+  has_many :friends
+  has_many :img_posts
   validates :user_original, uniqueness: true, allow_nil: true
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
