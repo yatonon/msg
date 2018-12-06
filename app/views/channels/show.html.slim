@@ -15,12 +15,14 @@
   #messages.table data-current-user="#{current_user.id}" data-channel-id="#{params[:id]}"
     = render @messages
 
+  .move
+
   footer.fixed-bottom
     .container.w-75
       #form.text-center
         form
-          input type='text' placeholder='メッセージを入力' data-behavior='channel_speaker' class='w-75 mb-5'
-          br/
+          input type='text' id='text' placeholder='メッセージを入力' data-behavior='channel_speaker' class='w-75 mb-5'
+          input type='button' name='submit' id='submit' value='送信' data-behavior='channel_speaker'
 
 javascript:
   const crnt_user_id = #{current_user.id};
@@ -34,6 +36,8 @@ javascript:
   // メッセージ追加時
   $('#messages').on('DOMSubtreeModified propertychange', function () {
     const send_user_id = $('#messages .message:last-child').data('send-user');
+    move = $('.move').offset().top;
+    $(window).scrollTop(move);
     const direction = crnt_user_id == send_user_id ? 'right' : 'left';
     $('#messages .message:last-child').addClass(`text-${direction}`);
   });
