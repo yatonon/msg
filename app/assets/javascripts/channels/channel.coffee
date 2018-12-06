@@ -19,3 +19,9 @@ $(document).on 'keypress', '[data-behavior~=channel_speaker]', (event) ->
     App.channel.speak event.target.value
     event.target.value = ''
     event.preventDefault()
+
+$(document).on 'click','#submit', (event) ->
+  value = $('#text').val()
+  App.channel.speak value  
+  $('#text').val('')
+ 
