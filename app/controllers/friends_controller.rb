@@ -10,9 +10,9 @@ class FriendsController < ApplicationController
   # GET /friends/1
   # GET /friends/1.json
   def show
-    your_friend_ids = current_user.friends.established.map(&:to_id)
+    your_friend_ids = current_user.friends.established.pluck(:to_id)
     @your_friends = User.where(id: your_friend_ids)
-    @users_wanting_to_become_friend_with_you = User.joins(:friends).where(friends: { to_id: current_user.id, establish: true })
+    @users_wanting_to_become_friend_with_you = User.joins(:friends).where(friends: { to_id: current_user.id, establish: false, apply: false })
   end
 
   # GET /friends/new

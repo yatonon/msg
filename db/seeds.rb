@@ -8,13 +8,5 @@ end
 end
 # ユーザー1に申請してる輩
 7.upto(10) do |i|
-  Friend.create(user_id: i, establish: true, apply: true, to_id: 1)
-end
-# ユーザー1の友達を5人ほど
-2.upto(6) do |i|
-  Friend.create(user_id: 1, establish: true, apply: true, to_id: i)
-end
-# ユーザー1に申請してる輩
-7.upto(10) do |i|
-  Friend.create(user_id: i, establish: true, apply: true, to_id: 1)
+  Friend.create(user_id: i, establish: false, apply: false, to_id: 1)
 end
