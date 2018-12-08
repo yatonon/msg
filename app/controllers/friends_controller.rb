@@ -1,4 +1,5 @@
 class FriendsController < ApplicationController
+  before_action :authenticate_user!
   add_flash_types :error
   # GET /friends
   # GET /friends.json
@@ -9,21 +10,14 @@ class FriendsController < ApplicationController
   # GET /friends/1
   # GET /friends/1.json
   def show
-    c_id = current_user.id
-    current_to_friends = Friend.where(user_id: c_id).where(establish: true )
-    current_from_friends = Friend.where(to_id: c_id).where(establish: true )
-    current_friends = []
-    @friends_name = []
-
-    current_to_friends.each do |current_to_friend|
-      current_friends.push(User.where(id: current_to_friend.to_id))
-    end
-    current_from_friends.each do |current_from_friend|
-      current_friends.push(User.where(id: current_from_friend.user_id))
-    end
-    current_friends.each do |current_friend|
-      @friends_name.push(current_friend.pluck(:name))
-    end
+    your_friend_ids = current_user.friends.established.pluck(:to_id) +  # 自分から申請して友だちになったやつ
+      User.joins(:friends)  # 申請を受け入れて友達になったやつ
+        .where(friends: { to_id: current_user.id, establish: true })
+        .pluck(:id)
+    @your_friends = User.where(id: your_friend_ids).order(:name)
+    @users_wanting_to_become_friend_with_you = User.joins(:friends)
+      .where(friends: { to_id: current_user.id, establish: false })
+      .order(:name)
   end
 
   # GET /friends/new
