@@ -10,9 +10,14 @@ class FriendsController < ApplicationController
   # GET /friends/1
   # GET /friends/1.json
   def show
-    your_friend_ids = current_user.friends.established.pluck(:to_id)
-    @your_friends = User.where(id: your_friend_ids)
-    @users_wanting_to_become_friend_with_you = User.joins(:friends).where(friends: { to_id: current_user.id, establish: false, apply: false })
+    your_friend_ids = current_user.friends.established.pluck(:to_id) +  # 自分から申請して友だちになったやつ
+      User.joins(:friends)  # 申請を受け入れて友達になったやつ
+        .where(friends: { to_id: current_user.id, establish: true })
+        .pluck(:id)
+    @your_friends = User.where(id: your_friend_ids).order(:name)
+    @users_wanting_to_become_friend_with_you = User.joins(:friends)
+      .where(friends: { to_id: current_user.id, establish: false })
+      .order(:name)
   end
 
   # GET /friends/new
