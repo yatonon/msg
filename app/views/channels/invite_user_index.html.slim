@@ -8,7 +8,7 @@
     - @users.each do |user|
       - next if current_user == user || @channel.users.include?(user)
       tr
-        th = link_to user_path(user) do
+        th = link_to user do
           = fa_icon 'user-circle', text: user.name
         th = link_to invite_user_channel_path(@channel, user_id: user.id), method: :post do
           = fa_icon 'plus-square', text: '招待'
