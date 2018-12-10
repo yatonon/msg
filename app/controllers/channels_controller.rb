@@ -31,7 +31,7 @@ class ChannelsController < ApplicationController
 
   def invite_user
     ChannelUser.create(channel_id: @channel.id, user_id: params[:user_id])
-    redirect_to channel_path(@channel)
+    redirect_to @channel
   end
 
 

@@ -34,9 +34,9 @@ ActiveRecord::Schema.define(version: 2018_12_10_034526) do
     t.bigint "user_id"
     t.boolean "establish"
     t.boolean "apply"
+    t.integer "to_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "to_id"
     t.index ["user_id"], name: "index_friends_on_user_id"
   end
 
