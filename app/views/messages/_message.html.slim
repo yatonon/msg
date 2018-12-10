@@ -1,5 +1,8 @@
 .message.panel.panel-primary data-send-user=message.user_id
   .send-user
     p = message.user.name
-  .content
-    p = message.content
+  - if message.image.present?
+    = image_tag message.image.url
+  - else
+    .content
+      p = message.content
