@@ -7,8 +7,7 @@ class ChannelsController < ApplicationController
   end
 
   def show
-    @messages = Message.where(channel_id: params[:id])
-    @posts = ImgPost.where(channel_id: params[:id])
+    @messages = @channel.messages
   end
 
   def new

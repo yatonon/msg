@@ -23,7 +23,7 @@
         form
           input type='text' id='text' placeholder='メッセージを入力' data-behavior='channel_speaker' class='mb-5'
           input type='button' name='submit' id='submit' value='送信' data-behavior='channel_speaker'
-        = render 'uploader', channel: @channel
+        = render 'uploader', resource: Message.new, channel: @channel
 
 javascript:
   const crnt_user_id = #{current_user.id};
