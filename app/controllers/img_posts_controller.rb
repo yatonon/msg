@@ -6,11 +6,11 @@ class ImgPostsController < ApplicationController
   def create
     @post = ImgPost.new(permit_params)
     @post.save!
-    redirect_to action: 'show'
+    redirect_to channel_path(params['img_post']['channel_id'])
   end
 
   private
     def permit_params
-      params.require(:img_post).permit(:user_id, :image)
+      params.require(:img_post).permit(:channel_id, :user_id, :image)
     end
 end
