@@ -14,6 +14,7 @@
 
   #messages.table data-current-user="#{current_user.id}" data-channel-id="#{params[:id]}"
     = render @messages
+    = render 'show_img', posts: @posts
 
   .move
 
@@ -23,6 +24,7 @@
         form
           input type='text' id='text' placeholder='メッセージを入力' data-behavior='channel_speaker' class='mb-5'
           input type='button' name='submit' id='submit' value='送信' data-behavior='channel_speaker'
+        = render 'uploader', channel: @channel
 
 javascript:
   const crnt_user_id = #{current_user.id};
