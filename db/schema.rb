@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_10_034526) do
+ActiveRecord::Schema.define(version: 2018_12_10_045311) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,22 +40,13 @@ ActiveRecord::Schema.define(version: 2018_12_10_034526) do
     t.index ["user_id"], name: "index_friends_on_user_id"
   end
 
-  create_table "img_posts", force: :cascade do |t|
-    t.string "image"
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "channel_id"
-    t.index ["channel_id"], name: "index_img_posts_on_channel_id"
-    t.index ["user_id"], name: "index_img_posts_on_user_id"
-  end
-
   create_table "messages", force: :cascade do |t|
     t.text "content"
     t.bigint "user_id"
     t.bigint "channel_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image"
     t.index ["channel_id"], name: "index_messages_on_channel_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
@@ -77,5 +68,4 @@ ActiveRecord::Schema.define(version: 2018_12_10_034526) do
   add_foreign_key "channel_users", "channels"
   add_foreign_key "channel_users", "users"
   add_foreign_key "friends", "users"
-  add_foreign_key "img_posts", "channels"
 end

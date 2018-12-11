@@ -1,8 +1,0 @@
-- @posts.each do |post|
-    = image_tag post.image.url
-
-= form_for :img_post, url: 'img_posts/create'  do |f|
-  = f.hidden_field :user_id, value: current_user.id
-  = f.label "画像をアップロード"
-  = f.file_field :image
-  = f.submit value: '投稿'

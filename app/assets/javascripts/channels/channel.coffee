@@ -16,12 +16,18 @@ App.channel = App.cable.subscriptions.create "ChannelChannel",
 
 $(document).on 'keypress', '[data-behavior~=channel_speaker]', (event) ->
   if event.keyCode is 13 # returnキーが押されたら
-    App.channel.speak event.target.value
+    msg = event.target.value
+    App.channel.speak msg if msg isnt ''
     event.target.value = ''
     event.preventDefault()
 
+$(document).on 'click', '#post_image', (event) ->
+  file = $('input#message_image').prop('files')[0]
+  $('form#post_form').submit() if file isnt undefined
+  event.preventDefault()
+
 $(document).on 'click','#submit', (event) ->
-  value = $('#text').val()
-  App.channel.speak value  
+  msg = $('#text').val()
+  App.channel.speak msg if msg isnt '' 
   $('#text').val('')
  
