@@ -1,1 +1,2 @@
-p = image_tag posts.last.image.url
+- if posts.present?
+  p = image_tag posts.last.image.url
