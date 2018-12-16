@@ -3,7 +3,10 @@ class User < ApplicationRecord
   has_many :channels, through: :channel_users
   accepts_nested_attributes_for :channel_users
   has_many :friends
-  
+
+  mount_uploader :icon_img, ImageUploader
+
+
   validates :user_original, uniqueness: true, allow_nil: true
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable

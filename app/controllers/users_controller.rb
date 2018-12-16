@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    if current_user.update(params.require(:user).permit(:name, :email, :user_original))
+    if current_user.update(params.require(:user).permit(:name, :email, :user_original, :icon_img))
       redirect_to profile_path
     else
       render :edit
