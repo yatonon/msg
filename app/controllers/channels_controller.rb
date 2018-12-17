@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ChannelsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_channel, only: %i(show destroy invite_user_index invite_user)
@@ -33,16 +35,15 @@ class ChannelsController < ApplicationController
     redirect_to @channel
   end
 
-
   private
 
-  def channel_params
-    params.require(:channel).permit(
-      :name
-    )
-  end
+    def channel_params
+      params.require(:channel).permit(
+        :name
+      )
+    end
 
-  def set_channel
-    @channel = Channel.find(params[:id])
-  end
+    def set_channel
+      @channel = Channel.find(params[:id])
+    end
 end
