@@ -39,7 +39,7 @@ class FriendsController < ApplicationController
     if @friend.save
       redirect_to friends_serch_path
     elsif Friend.find_by(user_id: friend_params[:user_id], to_id: friend_params[:to_id]).establish?
-      redirect_to friends_serch_path, error: ["もう友達だよーん"]
+      redirect_to friends_serch_path, error: ['もう友達だよーん']
     else
       redirect_to friends_serch_path, error: @friend.errors.full_messages
     end
