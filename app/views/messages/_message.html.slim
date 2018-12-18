@@ -1,8 +1,12 @@
 .message.panel.panel-primary data-send-user=message.user_id
   .send-user
     p = message.user.name
+    p = image_tag("/uploads/user/thumb/#{current_user.icon_img.url.match(/([^\/]+?)?$/)[0]}")
   - if message.image.present?
     = image_tag message.image.url
   - else
     .content
       p = message.content
+
+
+      / p = image_tag("/uploads/user/thumb/#{current_user.icon_img.url.match(/([^\/]+?)?$/)[0]}")
