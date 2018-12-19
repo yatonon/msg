@@ -17,8 +17,12 @@ class ChannelsController < ApplicationController
   end
 
   def create
-    @channel = current_user.channels.create(channel_params)
-    redirect_to channels_path
+    @channel = current_user.channels.new(channel_params)
+    if @channel.save
+      redirect_to channels_path
+    else
+      render :new
+    end
   end
 
   def destroy
@@ -38,9 +42,7 @@ class ChannelsController < ApplicationController
   private
 
     def channel_params
-      params.require(:channel).permit(
-        :name
-      )
+      params.require(:channel).permit(:name)
     end
 
     def set_channel
