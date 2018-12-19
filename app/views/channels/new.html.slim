@@ -1,5 +1,6 @@
 .container
   h2 チャンネル作成
+  = render 'layouts/error_message', resouce: @channel
   = form_for @channel do |f|
     = f.text_field :name, placeholder: "新規チャンネル名"
     = f.submit "チャンネルを作る", class: 'square_btn'

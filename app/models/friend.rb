@@ -7,8 +7,8 @@ class Friend < ApplicationRecord
 
   private
 
-  def invite_doub?
-    establish == false
-    apply == true
-  end
+    def invite_doub?
+      establish == false
+      apply == true
+    end
 end

@@ -6,7 +6,6 @@ class User < ApplicationRecord
 
   mount_uploader :icon_img, ImageUploader
 
-
   validates :user_original, uniqueness: true, allow_nil: true
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
