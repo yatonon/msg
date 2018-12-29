@@ -1,0 +1,7 @@
+ja:
+  activerecord:
+    models:
+      channel: チャンネル
+    attributes:
+      channel:
+        name: チャンネル名

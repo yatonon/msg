@@ -10,6 +10,10 @@ ja:
           attributes:
             user_original:
               taken: その ID はすでに使用されています
+        channel:
+          attributes:
+            name:
+              blank: を入力してください
         message:
           attributes:
             channel:
