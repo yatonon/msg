@@ -1,3 +1,4 @@
-- resouce.errors.full_messages.each do |e|
-    .alert.alert-danger role='alert'
-      = e
+- if resouce.errors.present?
+  .alert.alert-danger role='alert'
+    - resouce.errors.full_messages.each do |error|
+      = error

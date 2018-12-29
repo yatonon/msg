@@ -18,7 +18,7 @@ class ChannelsController < ApplicationController
 
   def create
     @channel = current_user.channels.new(channel_params)
-    if @channel.save
+    if current_user.save
       redirect_to channels_path
     else
       render :new
