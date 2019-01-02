@@ -1,4 +1,5 @@
 .container
+  = link_to 'フレンドを検索', friends_serch_path
   table.table
     thead
       tr
@@ -15,7 +16,7 @@
           td まだログインしていません
           td
 
-      - @users.each do |user|
+      - @your_friends.each do |user|
         - next if user == current_user
         tr
           td = fa_icon 'user-circle', text: user&.name || '名無しさん'
