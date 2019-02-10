@@ -42,3 +42,11 @@ ALTER ROLE postgres WITH SUPERUSER CREATEDB CREATEROLE; # ロールの作成
 bin/rails db:setup db:seed
 bin/rails s
 ```
+
+## herokuへデプロイするとき
+```
+# リポジトリの追加
+heroku git:remote --app tokorozawazoo
+# ローカルでmasterブランチを最新にしてから、
+git push heroku master
+```
