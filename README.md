@@ -9,8 +9,8 @@ Macの場合: https://hub.docker.com/editions/community/docker-ce-desktop-mac
 ```
 git clone https://github.com/yatonon/msg.git && cd msg
 docker-compose build
-docker-compose run --rm web bundle exec rake db:setup db:seed
 docker-compose up
+docker-compose run --rm web rails db:setup db:seed
 
 -> localhost:3000にアクセス
 ```
