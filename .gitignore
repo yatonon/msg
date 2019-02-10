@@ -28,3 +28,4 @@
 /vendor
 
 /public/uploads
+.DS_Store

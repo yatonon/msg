@@ -7,7 +7,7 @@ RUN mkdir /msg
 WORKDIR /msg
 COPY Gemfile /msg/Gemfile
 COPY Gemfile.lock /msg/Gemfile.lock
-RUN bundle install
+RUN bundle install -j4
 COPY . /msg
 
 # Add a script to be executed every time the container starts.
