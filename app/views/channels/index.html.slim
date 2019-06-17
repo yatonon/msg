@@ -1,5 +1,5 @@
 .container.w-50
-  h1 これはインデックスだよチャンネルの
+  h1 チャンネル一覧
   = link_to 'チャンネルを新規作成する', new_channel_path, class: 'btn btn-info mb-4 text-white'
   = button_tag fa_icon(:trash, text: 'チャンネルを削除'), type: 'button', onclick: 'changeMode()', class: 'btn-sm btn-danger delete-mode pull-right'
   table.table
@@ -27,4 +27,3 @@ javascript:
 
     isEditMode = !isEditMode;
   };
-
