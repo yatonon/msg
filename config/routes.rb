@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   resources :users
   get 'profile', to: 'users#profile'
+  resources :rooms
   resources :channels
   resources :channels do
     member do
